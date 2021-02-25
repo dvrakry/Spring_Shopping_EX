@@ -2,11 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<ul>
-<li>사이트 소개</li>
-<li>이용약관</li>
-<li>Rak</li>
-</ul>
+
+<h1 class="title">
+   <a href="/admin/index">rak admin</a>
+</h1>
 
 
 

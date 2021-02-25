@@ -13,6 +13,7 @@ public class MemberVO {
 	private String userAddr3;
 	private Date regDate;
 	private int verify;
+	
 	public String getUserId() {
 		return userId;
 	}
