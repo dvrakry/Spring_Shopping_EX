@@ -30,6 +30,10 @@
 	<context:component-scan base-package="com.shop.controller" />
 	<!-- <context:component-scan base-package="com.shop.orm" /> -->
 	
+	<!-- 인터셉터 -->
+	<beans:bean id="AdminInterceptor" class="com.shop.interceptor.AdminInterceptor"></beans:bean>
+	
+	
 	
 	
 </beans:beans>
