@@ -20,7 +20,12 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
 		//그 중 member 라는 명칭의 세션을 불러와 MemberVO 의 형태로 변환한 뒤, MemberVO 형태의 변수인 member 에 저장
 		MemberVO member = (MemberVO) session.getAttribute("member");
 		
-		if(member == null || member.getVerify() !=9 ) {
+		if(member == null) {
+			res.sendRedirect("/member/signin");
+			return false;
+		}
+		
+		if(member.getVerify() !=9 ) {
 			res.sendRedirect("/");
 			return false;
 		}

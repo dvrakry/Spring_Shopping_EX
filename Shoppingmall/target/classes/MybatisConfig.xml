@@ -3,6 +3,7 @@
 <configuration>
    <typeAliases>
 		<typeAlias type="com.shop.domain.MemberVO" alias="mvo"/>
+		<typeAlias type="com.shop.domain.CategoryVO" alias="cvo"/>
    </typeAliases>
 </configuration>
 
