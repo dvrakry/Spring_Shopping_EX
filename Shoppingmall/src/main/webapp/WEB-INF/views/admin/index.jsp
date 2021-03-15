@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>rak admin.</title>
+<title>rak admin</title>
 <script src="/resources/jquery/jquery-3.3.1.min.js"></script>
 
 <link rel="stylesheet" href="/resources/bootstrap/bootstrap.min.css">

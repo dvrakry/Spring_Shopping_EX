@@ -21,14 +21,9 @@ import net.sf.json.JSONArray;
 public class AdminController {
 	private static Logger logger = LoggerFactory.getLogger(AdminController.class);
 	
-<<<<<<< HEAD
 	@Inject
 	AdminService adminService;
-	
-	//관리자 화면
-=======
-	//관리자 화면.
->>>>>>> refs/remotes/origin/main
+
 	@GetMapping(value = "/index")
 	public void getIndex() throws Exception{
 		logger.info("get index");
