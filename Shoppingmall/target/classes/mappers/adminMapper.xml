@@ -11,4 +11,10 @@
 	start with cateCodeRef is null connect by prior cateCode = cateCodeRef
 </select>
 
+<!-- 상품등록 -->
+<insert id="register">
+	insert into tbl_goods (gsdNum, gdsNum, cateCode, gdsPrice, gdsStock, gdsDes)
+	values (tbl_goods_seq.nextVal, #{gdsNum}, #{cateCode}, #{gdsPrice}, #{gdsStock}, #{gdsDes})
+</insert>
+
 </mapper>

@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.shop.domain.CategoryVO;
+import com.shop.domain.GoodsVO;
 
 @Repository
 public class AdminDAOImpl implements AdminDAO {
@@ -21,9 +22,16 @@ public class AdminDAOImpl implements AdminDAO {
 	//매퍼
 	private static String namespace = "AdminMapper.";
 	
+	//카테고리
 	@Override
 	public List<CategoryVO> category() throws Exception {
 		return sql.selectList(namespace+"category");
+	}
+	
+	//상품등록
+	@Override
+	public void register(GoodsVO vo) throws Exception {
+		sql.insert(namespace+"register", vo);
 	}
 
 }

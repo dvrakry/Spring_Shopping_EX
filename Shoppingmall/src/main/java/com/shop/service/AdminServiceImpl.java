@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.shop.domain.CategoryVO;
+import com.shop.domain.GoodsVO;
 import com.shop.persistence.AdminDAO;
 
 @Service
@@ -24,4 +25,10 @@ public class AdminServiceImpl implements AdminService {
 		return dao.category();
 	}
 
+	@Override
+	public void register(GoodsVO vo) throws Exception {
+		dao.register(vo);
+	}
+
 }
+
