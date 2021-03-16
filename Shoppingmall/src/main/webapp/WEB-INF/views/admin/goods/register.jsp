@@ -16,6 +16,15 @@
 <link rel="stylesheet" href="/resources/css/index.css">
 <script src="/resources/bootstrap/bootstrap.min.js"></script>
 
+<style>
+.inputArea { margin:10px 0; }
+select { width:100px; }
+label { display:inline-block; width:70px; padding:5px; }
+label[for='gdsDes'] { display:block; }
+input { width:150px; }
+textarea#gdsDes { width:400px; height:180px; }
+</style>
+
 </head>
 <body>
 	<div id="root">
@@ -41,9 +50,13 @@
 				<form role="form" method="post" autocomplete="off">
 
 					<div class="inputArea">
-						<label>1차 분류</label> <select class="category1">
+						<label>1차 분류</label> 
+						<select class="category1">
 							<option value="">전체</option>
-						</select> <label>2차 분류</label> <select class="category2" name="cateCode">
+						</select> 
+						
+						<label>2차 분류</label> 
+						<select class="category2" name="cateCode">
 							<option value="">전체</option>
 						</select>
 					</div>
@@ -112,11 +125,7 @@
 	}
 
 	//2차분류
-	$(document)
-			.on(
-					"change",
-					"select.category1",
-					function() {
+	$(document).on("change","select.category1",function() {
 						var cate2Arr = new Array();
 						var cate2Obj = new Object();
 
@@ -143,23 +152,17 @@
 
 						cate2Select.children().remove();
 
-						$("option:selected", this)
-								.each(
-										function() {
+						$("option:selected", this).each(function() {
 											var selectVal = $(this).val();
-											cate2Select
-													.append("<option value=''>전체</option>");
+											cate2Select.append("<option value='" + selectVal +"'>전체</option>");
 
 											for (var i = 0; i < cate2Arr.length; i++) {
 												if (selectVal == cate2Arr[i].cateCodeRef) {
-													cate2Select
-															.append("<option value='" + cate2Arr[i].cateCode + "'>"
-																	+ cate2Arr[i].cateName
-																	+ "</option>");
+													cate2Select.append("<option value='" + cate2Arr[i].cateCode + "'>"
+													+ cate2Arr[i].cateName + "</option>");
 												}
 											}
 										});
-
 					});
 </script>
 

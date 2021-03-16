@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.shop.domain.CategoryVO;
 import com.shop.domain.GoodsVO;
@@ -48,5 +49,39 @@ public class AdminController {
 		
 		return "redirect:/admin/index";
 	}
+	
+	//상품 목록
+	@GetMapping(value = "/goods/list")
+	public void getGoodsList(Model model) throws Exception{
+		logger.info("get goods list");
+		
+		List<GoodsVO> list = adminService.goodslist();
+		
+		model.addAttribute("list", list);
+	}
+	
+	//상품 목록
+	@GetMapping(value = "/goods/view")
+	public void getGoodsview(@RequestParam("n") int gdsNum, Model model) throws Exception{
+		logger.info("get goods view");
+		
+		GoodsVO goods = adminService.goodsView(gdsNum);
+		
+		model.addAttribute("goods", goods);
+	}
+	
+	//상품 수정
+	@GetMapping(value = "/goods/modify")
+	public void getGoodsModify(@RequestParam("n") int gdsNum , Model model) throws Exception{
+		logger.info("get goods modify");
+		
+		GoodsVO goods = adminService.goodsView(gdsNum);
+		model.addAttribute("goods", goods);
+		
+		List<CategoryVO> category = null;
+		category = adminService.category();
+		model.addAttribute("category", JSONArray.fromObject(category));
+	}
+	
 	
 }

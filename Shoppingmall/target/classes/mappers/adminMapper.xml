@@ -11,10 +11,28 @@
 	start with cateCodeRef is null connect by prior cateCode = cateCodeRef
 </select>
 
-<!-- 상품등록 -->
+<!-- 상품 등록 -->
 <insert id="register">
-	insert into tbl_goods (gsdNum, gdsNum, cateCode, gdsPrice, gdsStock, gdsDes)
-	values (tbl_goods_seq.nextVal, #{gdsNum}, #{cateCode}, #{gdsPrice}, #{gdsStock}, #{gdsDes})
+ insert into tbl_goods (gdsNum, gdsName, cateCode, gdsPrice, gdsStock, gdsDes)
+     values (tbl_goods_seq.nextval, #{gdsName}, #{cateCode}, #{gdsPrice}, #{gdsStock}, #{gdsDes})
 </insert>
 
+<!-- 상품 목록 --> 
+<select id="goodslist" resultType="gvo">
+ select 
+ gdsNum, gdsName, cateCode, gdsPrice, gdsStock, gdsDes, gdsImg, gdsDate 
+ from tbl_goods 
+ order by gdsNum desc
+</select>
+
+<!-- 상품조회 -->
+<select id="goodsView" resultType="gvo">
+ select gdsNum, gdsName, cateCode, gdsPrice, gdsStock, gdsDes, gdsImg, gdsDate
+ from tbl_goods
+ where gdsNum = #{gdsNum}
+</select>     
+    
+
 </mapper>
+
+

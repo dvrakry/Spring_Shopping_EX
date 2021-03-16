@@ -7,7 +7,7 @@ public class GoodsVO {
 	private int gdsNum;
 	private String gdsName;
 	private String cateCode;
-	private int gsdPrice;
+	private int gdsPrice;
 	private int gdsStock;
 	private String gdsDes;
 	private String gdsImg;
@@ -31,11 +31,11 @@ public class GoodsVO {
 	public void setCateCode(String cateCode) {
 		this.cateCode = cateCode;
 	}
-	public int getGsdPrice() {
-		return gsdPrice;
+	public int getGdsPrice() {
+		return gdsPrice;
 	}
-	public void setGsdPrice(int gsdPrice) {
-		this.gsdPrice = gsdPrice;
+	public void setGdsPrice(int gsdPrice) {
+		this.gdsPrice = gsdPrice;
 	}
 	public int getGdsStock() {
 		return gdsStock;
