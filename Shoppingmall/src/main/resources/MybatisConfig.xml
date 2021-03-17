@@ -5,6 +5,7 @@
 		<typeAlias type="com.shop.domain.MemberVO" alias="mvo"/>
 		<typeAlias type="com.shop.domain.CategoryVO" alias="cvo"/>
 		<typeAlias type="com.shop.domain.GoodsVO" alias="gvo"/>
+		<typeAlias type="com.shop.domain.GoodsViewVO" alias="gvvo"/>
    </typeAliases>
 </configuration>
 

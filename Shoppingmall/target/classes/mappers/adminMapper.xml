@@ -25,12 +25,42 @@
  order by gdsNum desc
 </select>
 
-<!-- 상품조회 -->
+<!--상품조회
 <select id="goodsView" resultType="gvo">
  select gdsNum, gdsName, cateCode, gdsPrice, gdsStock, gdsDes, gdsImg, gdsDate
  from tbl_goods
  where gdsNum = #{gdsNum}
-</select>     
+</select>      -->
+
+<!-- 상품조회 + 카테고리 조인 -->
+<select id="goodsView" resultType="gvvo">
+ select g.gdsNum, g.gdsName, g.cateCode, c.cateCodeRef, c.cateName, 
+ gdsPrice, gdsStock, gdsDes, gdsImg, gdsDate
+ from tbl_goods g
+ inner join goods_category c
+ on g.cateCode = c.cateCode          
+ where g.gdsNum = #{gdsNum}
+</select>
+
+<!-- 상품수정 -->
+<update id="goodsModify">
+	update tbl_goods
+	set
+		gdsName = #{gdsName},
+		cateCode = #{cateCode},
+		gdsPrice = #{gdsPrice},
+		gdsStock = #{gdsStock},
+		gdsDes = #{gdsDes}
+	where gdsNum = ${gdsNum}
+</update>
+
+<!-- 상품삭제 -->
+<delete id="goodsDelete">
+	delete
+	from tbl_goods
+	where gdsNum = #{gdsNum}
+</delete>
+
     
 
 </mapper>
