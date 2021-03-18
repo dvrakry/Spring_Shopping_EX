@@ -1,7 +1,9 @@
 package com.shop.controller;
 
+import java.io.File;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -12,11 +14,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.shop.domain.CategoryVO;
 import com.shop.domain.GoodsVO;
 import com.shop.domain.GoodsViewVO;
 import com.shop.service.AdminService;
+import com.shop.utils.UploadFileUtils;
 
 import net.sf.json.JSONArray;
 
@@ -27,6 +31,9 @@ public class AdminController {
 	
 	@Inject
 	AdminService adminService;
+	
+	@Resource(name = "uploadPath")
+	private String uploadPath;
 
 	@GetMapping(value = "/index")
 	public void getIndex() throws Exception{
@@ -45,7 +52,20 @@ public class AdminController {
 	
 	//상품등록
 	@PostMapping(value = "/goods/register")
-	public String postGoodsRegister(GoodsVO vo) throws Exception{
+	public String postGoodsRegister(GoodsVO vo, MultipartFile file) throws Exception{
+		
+		String imgUploadPath = uploadPath + File.separator + "imgUpload";
+		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+		String fileName = null;
+
+		if(file != null) {
+		 fileName =  UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath); 
+		} else {
+		 fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
+		}
+
+		vo.setGdsImg(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
+		vo.setGdsThumbImg(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
 		adminService.register(vo);
 		
 		return "redirect:/admin/index";

@@ -13,6 +13,16 @@ public class GoodsVO {
 	private String gdsImg;
 	private Date gdsDate;
 	
+	private String gdsThumbImg;
+	
+	
+	public String getGdsThumbImg() {
+		return gdsThumbImg;
+	}
+	public void setGdsThumbImg(String gdsTumbImg) {
+		this.gdsThumbImg = gdsTumbImg;
+	}
+	
 	public int getGdsNum() {
 		return gdsNum;
 	}
