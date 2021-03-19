@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1 class="title">
-   <a href="/admin/index">rak admin</a>
+   <a href="/admin/index">Rak's coffee admin</a>
 </h1>
 </body>
 </html>

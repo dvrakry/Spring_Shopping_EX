@@ -4,7 +4,7 @@
 
 
 <h1 class="title">
-   <a href="/">rak</a>
+   <a href="/">Rak's coffee</a>
 </h1>
 
 

@@ -24,6 +24,7 @@ label { display:inline-block; width:70px; padding:5px; }
 label[for='gdsDes'] { display:block; }
 input { width:150px; }
 textarea#gdsDes { width:400px; height:180px; }
+.gdsDes img { max-width:600px; height:auto; }
 
 </style>
 
@@ -74,7 +75,7 @@ textarea#gdsDes { width:400px; height:180px; }
 					</div>
 
 					<div class="inputArea">
-						<label for="gdsDes">상품소개</label> <span>${goods.gdsDes}</span>
+						<label for="gdsDes">상품소개</label> <div class="gdsDes">${goods.gdsDes}</div>
 					</div>
 					
 					<div class="inputArea">

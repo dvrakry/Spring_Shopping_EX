@@ -20,12 +20,22 @@
 </insert>
 
 <!-- 상품 목록 --> 
-<select id="goodslist" resultType="gvo">
+<!-- <select id="goodslist" resultType="gvo">
  select 
  gdsNum, gdsName, cateCode, gdsPrice, gdsStock, gdsDes, gdsImg, gdsDate 
  from tbl_goods 
  order by gdsNum desc
+</select> -->
+<select id="goodslist" resultType="gvvo">
+select  g.gdsNum, g.gdsName, g.cateCode, c.cateCodeRef, c.cateName, gdsPrice, gdsStock, gdsDes, gdsImg, gdsDate,
+     g.gdsImg, g.gdsThumbImg
+from tbl_goods g
+	inner join goods_category c
+		on g.cateCode = c.cateCode
+
 </select>
+
+
 
 <!--상품조회
 <select id="goodsView" resultType="gvo">
@@ -52,7 +62,11 @@
 		cateCode = #{cateCode},
 		gdsPrice = #{gdsPrice},
 		gdsStock = #{gdsStock},
-		gdsDes = #{gdsDes}
+		gdsDes = #{gdsDes},
+		
+		gdsImg = #{gdsImg},
+		gdsThumbImg = #{gdsThumbImg}
+		
 	where gdsNum = ${gdsNum}
 </update>
 
