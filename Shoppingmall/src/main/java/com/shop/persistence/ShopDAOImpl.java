@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.shop.domain.GoodsViewVO;
+import com.shop.domain.ReplyListVO;
+import com.shop.domain.ReplyVO;
 
 @Repository
 public class ShopDAOImpl implements ShopDAO {
@@ -39,6 +41,24 @@ public class ShopDAOImpl implements ShopDAO {
 	public List<GoodsViewVO> list(int cateCode) throws Exception {
 		
 		return sql.selectList(namespace+"list2", cateCode);
+	}
+	
+	//상품조회
+	@Override
+	public GoodsViewVO goodsView(int gdsNum) throws Exception {
+		return sql.selectOne(namespace+"goodsView", gdsNum);
+	}
+	
+	//상품 댓글 작성
+	@Override
+	public void registReply(ReplyVO reply) throws Exception {
+		sql.insert(namespace+"registReply", reply);
+	}
+	
+	//상품 댓글 리스트
+	@Override
+	public List<ReplyListVO> replyList(int gdsNum) throws Exception {
+		return sql.selectList(namespace+"replyList", gdsNum);
 	}
 	
 	

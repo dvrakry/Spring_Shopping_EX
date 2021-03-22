@@ -6,6 +6,7 @@
 		<typeAlias type="com.shop.domain.CategoryVO" alias="cvo"/>
 		<typeAlias type="com.shop.domain.GoodsVO" alias="gvo"/>
 		<typeAlias type="com.shop.domain.GoodsViewVO" alias="gvvo"/>
+		<typeAlias type="com.shop.domain.ReplyListVO" alias="rlvo"/>
    </typeAliases>
 </configuration>
 
