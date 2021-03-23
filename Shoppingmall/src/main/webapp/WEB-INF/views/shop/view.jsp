@@ -4,6 +4,35 @@
 <html>
 <head>
 <script src="/resources/jquery/jquery-3.3.1.min.js"></script>
+
+<script> 
+				function replyList(){
+					
+					 var gdsNum = ${view.gdsNum};
+					 $.getJSON("/shop/view/replyList" + "?n=" + gdsNum, function(data){
+					  var str = "";
+					  
+					  $(data).each(function(){
+					   
+					   console.log(data);
+					   
+					   var repDate = new Date(this.repDate);
+					   repDate = repDate.toLocaleDateString("ko-US")
+					   
+					   str += "<li data-gdsNum='" + this.gdsNum + "'>"
+					     + "<div class='userInfo'>"
+					     + "<span class='userName'>" + this.userName + "</span>"
+					     + "<span class='date'>" + repDate + "</span>"
+					     + "</div>"
+					     + "<div class='replyContent'>" + this.repCon + "</div>"
+					     + "</li>";           
+					  });
+					  
+					  $("section.replyList ol").html(str);
+					 });
+					 
+				}
+				</script>
 <style>
 
  body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
@@ -169,14 +198,37 @@
 							</div>
 							
 							<div class="input_area">
-								<button type="submit" id="reply_btn">댓글 남기기</button>
+								<button type="button" id="reply_btn">댓글 남기기</button>
+								
+							<script>
+								 $("#reply_btn").click(function(){
+								  
+								  var formObj = $(".replyForm form[role='form']");
+								  var gdsNum = $("#gdsNum").val();
+								  var repCon = $("#repCon").val()
+								  
+								  var data = {
+								    gdsNum : gdsNum,
+								    repCon : repCon
+								    };
+								  
+								  $.ajax({
+								   url : "/shop/view/registReply",
+								   type : "post",
+								   data : data,
+								   success : function(){
+								    replyList();
+								   }
+								  });
+								 });
+							</script>
 							</div>						
 						</form>
 					</section>
 				</c:if>
 					<section class="replyList">
 					 <ol>
-					 <c:forEach items="${reply}" var="reply">
+					 <%-- <c:forEach items="${reply}" var="reply">
 					
 					  <li>
 					      <div class="userInfo">
@@ -185,8 +237,14 @@
 					      </div>
 					      <div class="replyContent">${reply.repCon}</div>
 					    </li>
-					   </c:forEach>
+					   </c:forEach> --%>
 					  </ol>    
+					  
+					  <script>
+					  	replyList();
+					  </script>
+				
+					 
 					</section>
 	
 				<footer id="footer">
