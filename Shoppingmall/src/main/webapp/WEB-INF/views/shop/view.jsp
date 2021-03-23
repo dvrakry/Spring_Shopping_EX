@@ -8,6 +8,9 @@
 <script> 
 				function replyList(){
 					
+					console.log("replyList 함수 시작");
+					
+					
 					 var gdsNum = ${view.gdsNum};
 					 $.getJSON("/shop/view/replyList" + "?n=" + gdsNum, function(data){
 					  var str = "";
@@ -191,7 +194,7 @@
 					<section class="replyForm">
 						<form role="form" method="post" autocomplete="off">
 							
-							<input type="hidden" name="gdsNum" value="${view.gdsNum }">
+							<input type="hidden" class="gdsNum" value="${view.gdsNum }">
 						
 							<div class="input_area">
 								<textarea name="repCon" id="repCon"></textarea>
@@ -203,9 +206,14 @@
 							<script>
 								 $("#reply_btn").click(function(){
 								  
+								  console.log("ajax 댓글남기기");	 
+									 
 								  var formObj = $(".replyForm form[role='form']");
-								  var gdsNum = $("#gdsNum").val();
-								  var repCon = $("#repCon").val()
+								  var gdsNum = $(".gdsNum").val();
+								  
+								  console.log(gdsNum);
+								  
+								  var repCon = $("#repCon").val();
 								  
 								  var data = {
 								    gdsNum : gdsNum,
@@ -217,10 +225,14 @@
 								   type : "post",
 								   data : data,
 								   success : function(){
-								    replyList();
+									   replyList();  // 리스트 새로고침
+									   $("#repCon").val("");  // 텍스트에어리어를 초기화
 								   }
+								  
 								  });
+								  
 								 });
+								 
 							</script>
 							</div>						
 						</form>

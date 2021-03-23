@@ -76,6 +76,7 @@ public class ShopController {
 	 
 	 MemberVO member = (MemberVO)session.getAttribute("member");
 	 reply.setUserId(member.getUserId());
+	 reply.setUserName(member.getUserName());
 	 
 	 service.registReply(reply);
 	 

@@ -10,6 +10,19 @@ public class ReplyVO {
 	private Date repDate;
 	
 	
+	
+	public String userName;
+	
+	String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
+	
+	
+	
 	public int getGdsNum() {
 		return gdsNum;
 	}
