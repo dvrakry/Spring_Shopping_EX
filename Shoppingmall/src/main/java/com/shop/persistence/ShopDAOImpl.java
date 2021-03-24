@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.shop.domain.CartVO;
 import com.shop.domain.GoodsViewVO;
 import com.shop.domain.ReplyListVO;
 import com.shop.domain.ReplyVO;
@@ -74,6 +75,11 @@ public class ShopDAOImpl implements ShopDAO {
 	@Override
 	public void modifyReply(ReplyVO reply) throws Exception {
 		sql.update(namespace+"modifyReply", reply);
+	}
+
+	@Override
+	public void addCart(CartVO cart) throws Exception {
+		sql.insert(namespace+"addCart", cart);
 	}
 	
 	

@@ -2,6 +2,7 @@ package com.shop.persistence;
 
 import java.util.List;
 
+import com.shop.domain.CartVO;
 import com.shop.domain.GoodsViewVO;
 import com.shop.domain.ReplyListVO;
 import com.shop.domain.ReplyVO;
@@ -31,5 +32,8 @@ public interface ShopDAO {
 	
 	//상품 댓글 수정
 	public void modifyReply(ReplyVO reply) throws Exception;
+	
+	//카트담기
+	public void addCart(CartVO cart) throws Exception;
 	
 }

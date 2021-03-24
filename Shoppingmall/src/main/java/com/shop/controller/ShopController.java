@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.shop.domain.CartVO;
 import com.shop.domain.GoodsViewVO;
 import com.shop.domain.MemberVO;
 import com.shop.domain.ReplyListVO;
@@ -131,6 +132,24 @@ public class ShopController {
 			result = 1;
 		}
 		return result;
+	}
+	
+	//카트담기
+	@ResponseBody
+	@PostMapping(value = "/view/addCart")
+	public int addCart(CartVO cart, HttpSession session) throws Exception{
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		
+		int result = 0;
+		
+		if(member != null) {
+		cart.setUserId(member.getUserId());
+		service.addCart(cart);
+		result = 1;
+		}
+		
+		return result;
+		
 	}
 	
 }

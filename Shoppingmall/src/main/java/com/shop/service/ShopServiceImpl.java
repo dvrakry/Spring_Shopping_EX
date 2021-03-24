@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.shop.domain.CartVO;
 import com.shop.domain.GoodsViewVO;
 import com.shop.domain.ReplyListVO;
 import com.shop.domain.ReplyVO;
@@ -67,6 +68,11 @@ public class ShopServiceImpl implements ShopService {
 	@Override
 	public void modifyReply(ReplyVO reply) throws Exception {
 		dao.modifyReply(reply);
+	}
+
+	@Override
+	public void addCart(CartVO cart) throws Exception {
+		dao.addCart(cart);
 	}
 	
 	
