@@ -11,10 +11,10 @@ public class ReplyListVO {
 	
 	private String userName;
 	
-	String getUserName() {
+	public String getUserName() {
 		return userName;
 	}
-	void setUserName(String userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 	
