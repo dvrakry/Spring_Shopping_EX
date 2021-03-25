@@ -23,6 +23,6 @@ Goods_category 테이블에서 1차 카테고리인 음료/푸드가 cateCode �
 
 [Spring Security]
 
-'''java
+```java
   boolean passMatch = passEncoder.matches(vo.getUserPass(), login.getUserPass());
-'''
+```
