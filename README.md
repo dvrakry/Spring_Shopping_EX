@@ -1,12 +1,12 @@
 # Spring_Shopping_EX
 스프링 프레임워크 쇼핑몰 연습
-
+---------------------------
 [메인화면]
-
+---------------------------
 ![메인2](https://user-images.githubusercontent.com/74029610/112427119-6aab3b80-8d7c-11eb-936a-c113afe31773.PNG)
 
 [카테고리]
-
+----------------------------
 ![카테고리](https://user-images.githubusercontent.com/74029610/112427569-24a2a780-8d7d-11eb-8bbc-a9dfbb77e24e.PNG)
 
 [카테고리 관련 table]
