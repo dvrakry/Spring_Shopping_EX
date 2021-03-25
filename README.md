@@ -172,7 +172,7 @@ Spring security 를 이용해서 비밀번호를 DB에 변경시켜 저장했습
   
 [댓글 AJAX]
   
-```java
+
 
 <div class="input_area">
 	<button type="button" id="reply_btn">댓글 남기기</button>
