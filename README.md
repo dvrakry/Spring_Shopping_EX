@@ -95,16 +95,16 @@ Spring security 를 이용해서 비밀번호를 DB에 변경시켜 저장했습
 장바구니 목록은 gdsNum 칼럼을 inner join해서 불러옴
 
 ```xml
-	<select id="cartList" resultType="clvo">
-	 select
-	     row_number() over(order by c.cartNum desc) as num,
-	     c.cartNum, c.userId, c.gdsNum, c.cartStock, c.addDate,
-	     g.gdsName, g.gdsPrice, g.gdsThumbImg
-	 from tbl_cart c
-	     inner join tbl_goods g
-		 on c.gdsNum = g.gdsNum   
-	     where c.userId = #{userId}
-	</select>	
+<select id="cartList" resultType="clvo">
+select
+	row_number() over(order by c.cartNum desc) as num,
+	c.cartNum, c.userId, c.gdsNum, c.cartStock, c.addDate,
+	g.gdsName, g.gdsPrice, g.gdsThumbImg
+from tbl_cart c
+	inner join tbl_goods g
+	on c.gdsNum = g.gdsNum   
+where c.userId = #{userId}
+</select>	
 ```
 [장바구니 목록]
 
