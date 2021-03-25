@@ -48,47 +48,63 @@ Spring security 를 이용해서 비밀번호를 DB에 변경시켜 저장했습
 
 [장바구니 담기]
 
+
 ```java
 <p class="addToCart">
-				   <button type="button" class="addCart_btn">장바구니 담기</button>
-				   
-				   <script>
-				   	$(".addCart_btn").click(function(){
-						var gdsNum = $(".gdsNum").val();
-						var cartStock = $(".numBox").val();
-						
-						console.log("gdsNum : " + gdsNum);
-						console.log("cartStock : " + cartStock);
-						
-						
-						//ReplyVO 형태로 데이터 생성
-						var data = {
-								gdsNum : gdsNum,
-								cartStock : cartStock
-						};
-						
-					$.ajax({
-						url : "/shop/view/addCart",
-						type : "post",
-						data : data,
-						success : function(result){
-							if(result == 1){
-							alert("장바구니에 담겼습니다");
-							$(".numBox").val("1");
-							} else {
-								alert("회원만 사용할 수 있습니다.")
-								$(".numBox").val("1");
-							}
-						},
-						error : function(){
-							alert("장바구니에 담기 실패");
-						}
-					});
-						
-				   	});
-				   </script>
-				  </p>
+   <button type="button" class="addCart_btn">장바구니 담기</button>
+
+   <script>
+	$(".addCart_btn").click(function(){
+		var gdsNum = $(".gdsNum").val();
+		var cartStock = $(".numBox").val();
+
+		console.log("gdsNum : " + gdsNum);
+		console.log("cartStock : " + cartStock);
+		
+		//ReplyVO 형태로 데이터 생성
+		var data = {
+		 gdsNum : gdsNum,
+		 cartStock : cartStock
+		};
+
+	$.ajax({
+		url : "/shop/view/addCart",
+		type : "post",
+		data : data,
+		success : function(result){
+			if(result == 1){
+			alert("장바구니에 담겼습니다");
+			$(".numBox").val("1");
+			} else {
+				alert("회원만 사용할 수 있습니다.")
+				$(".numBox").val("1");
+			}
+		},
+		error : function(){
+			alert("장바구니에 담기 실패");
+		}
+	   });
+
+	});
+</script>
+</p>
 ```
+
+장바구니 목록은 gdsNum 칼럼을 inner join해서 불러옴
+
+```xml
+	<select id="cartList" resultType="clvo">
+	 select
+	     row_number() over(order by c.cartNum desc) as num,
+	     c.cartNum, c.userId, c.gdsNum, c.cartStock, c.addDate,
+	     g.gdsName, g.gdsPrice, g.gdsThumbImg
+	 from tbl_cart c
+	     inner join tbl_goods g
+		 on c.gdsNum = g.gdsNum   
+	     where c.userId = #{userId}
+	</select>	
+```
+
 
 
 
