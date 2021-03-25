@@ -41,6 +41,57 @@ Goods_category 테이블에서 1차 카테고리인 음료/푸드가 cateCode �
 Spring security 를 이용해서 비밀번호를 DB에 변경시켜 저장했습니다.
 
 
+[상세페이지]
+--------------
+
+![상세페이지](https://user-images.githubusercontent.com/74029610/112432221-ebba0100-8d83-11eb-93b3-73044666592a.PNG)
+
+[장바구니 담기]
+
+```java
+<p class="addToCart">
+				   <button type="button" class="addCart_btn">장바구니 담기</button>
+				   
+				   <script>
+				   	$(".addCart_btn").click(function(){
+						var gdsNum = $(".gdsNum").val();
+						var cartStock = $(".numBox").val();
+						
+						console.log("gdsNum : " + gdsNum);
+						console.log("cartStock : " + cartStock);
+						
+						
+						//ReplyVO 형태로 데이터 생성
+						var data = {
+								gdsNum : gdsNum,
+								cartStock : cartStock
+						};
+						
+					$.ajax({
+						url : "/shop/view/addCart",
+						type : "post",
+						data : data,
+						success : function(result){
+							if(result == 1){
+							alert("장바구니에 담겼습니다");
+							$(".numBox").val("1");
+							} else {
+								alert("회원만 사용할 수 있습니다.")
+								$(".numBox").val("1");
+							}
+						},
+						error : function(){
+							alert("장바구니에 담기 실패");
+						}
+					});
+						
+				   	});
+				   </script>
+				  </p>
+```
+
+
+
 
 
 
