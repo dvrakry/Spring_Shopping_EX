@@ -177,37 +177,38 @@ Spring security 를 이용해서 비밀번호를 DB에 변경시켜 저장했습
 <div class="input_area">
 	<button type="button" id="reply_btn">댓글 남기기</button>
 
-	<script>
-		 $("#reply_btn").click(function(){
+		<script>
+			 $("#reply_btn").click(function(){
 
-		  console.log("ajax 댓글남기기");	 
+				  console.log("ajax 댓글남기기");	 
 
-		  var formObj = $(".replyForm form[role='form']");
-		  var gdsNum = $(".gdsNum").val();
+				  var formObj = $(".replyForm form[role='form']");
+				  var gdsNum = $(".gdsNum").val();
 
-		  console.log(gdsNum);
+				  console.log(gdsNum);
 
-		  var repCon = $("#repCon").val();
+				  var repCon = $("#repCon").val();
 
-		  var data = {
-		    gdsNum : gdsNum,
-		    repCon : repCon
-		    };
+				  var data = {
+				    gdsNum : gdsNum,
+				    repCon : repCon
+			    };
 
-		  $.ajax({
-		   url : "/shop/view/registReply",
-		   type : "post",
-		   data : data,
-		   success : function(){
-			   replyList();  // 리스트 새로고침
-			   $("#repCon").val("");  // 텍스트에어리어를 초기화
-		   }
+			  $.ajax({
+			  
+				   url : "/shop/view/registReply",
+				   type : "post",
+				   data : data,
+				   success : function(){
+					   replyList();  // 리스트 새로고침
+					   $("#repCon").val("");  // 텍스트에어리어를 초기화
+				   }
 
-		  });
+			  	});
 
-		 });
+			 });
 
-	</script>
+		</script>		
 </div>	
 
 ```
