@@ -26,13 +26,22 @@ Goods_category 테이블에서 1차 카테고리인 음료/푸드가 cateCode �
 -회원가입
 ```java
   String inputPass = vo.getUserPass();
-		String pass = passEncoder.encode(inputPass);
-		vo.setUserPass(pass);
+  String pass = passEncoder.encode(inputPass);
+  vo.setUserPass(pass);
 ```
 
 -로그인
 ```java
   boolean passMatch = passEncoder.matches(vo.getUserPass(), login.getUserPass());
 ```
+
+
+![password](https://user-images.githubusercontent.com/74029610/112431554-063faa80-8d83-11eb-8c9c-ade6fba12a19.PNG)
+
+Spring security 를 이용해서 비밀번호를 DB에 변경시켜 저장했습니다.
+
+
+
+
 
 
