@@ -9,4 +9,7 @@
 
 ![카테고리](https://user-images.githubusercontent.com/74029610/112427569-24a2a780-8d7d-11eb-8bbc-a9dfbb77e24e.PNG)
 
+[카테고리 관련 table]
 
+![goodsCate](https://user-images.githubusercontent.com/74029610/112428200-2325af00-8d7e-11eb-9f68-54ff603de589.PNG)
+![tbl_goods](https://user-images.githubusercontent.com/74029610/112428245-39336f80-8d7e-11eb-81f7-26b2c01af9f7.PNG)
