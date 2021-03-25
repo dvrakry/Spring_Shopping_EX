@@ -118,9 +118,11 @@ Spring security 를 이용해서 비밀번호를 DB에 변경시켜 저장했습
 
 댓글 작성시 로그인이 필요함
 
+댓글 기능은 AJAX (비동기 방식)을 사용함
+
 ![댓글2](https://user-images.githubusercontent.com/74029610/112435714-74d33700-8d88-11eb-8654-35cfb9e8f3f5.PNG)
 
-댓글 기능은 AJAX (비동기 방식)을 사용함
+
 
 함수 replyList() (아래 AJAX 에서 사용됨)
 
