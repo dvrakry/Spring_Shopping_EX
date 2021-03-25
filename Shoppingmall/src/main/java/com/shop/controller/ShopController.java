@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.shop.domain.CartListVO;
 import com.shop.domain.CartVO;
 import com.shop.domain.GoodsViewVO;
 import com.shop.domain.MemberVO;
@@ -150,6 +151,19 @@ public class ShopController {
 		
 		return result;
 		
+	}
+	
+	//카트리스트
+	@GetMapping(value = "/cartList")
+	public void getCartList(HttpSession session, Model model) throws Exception {
+		logger.info("get cart List");
+		
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		String userId = member.getUserId();
+		
+		List<CartListVO> cartList = service.cartList(userId);
+		
+		model.addAttribute("cartList", cartList);
 	}
 	
 }

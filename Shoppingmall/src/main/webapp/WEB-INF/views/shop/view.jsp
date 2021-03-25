@@ -140,7 +140,7 @@
 		
 			<section id="content">
 				<form role="form" method="post">
-				 <input type="hidden" name="gdsNum" value="${view.gdsNum}" />
+				 <input type="hidden" class="gdsNum" value="${view.gdsNum}" />
 				</form>
 				
 				<div class="goods">
@@ -201,7 +201,7 @@
 				   
 				   <script>
 				   	$(".addCart_btn").click(function(){
-						var gdsNum = $("#gdsNum").val();
+						var gdsNum = $(".gdsNum").val();
 						var cartStock = $(".numBox").val();
 						
 						console.log("gdsNum : " + gdsNum);
@@ -407,7 +407,7 @@ $(".modal_cancel").click(function(){
 								  success : function(result){
 									  if(resut == 1){
 										  replyList();
-										  $(".replyModal").fadeout(200);
+										  $(".replyModal").fadeOut(200);
 									  } else {
 										  alert("작성자 본인만 할 수 있습니다.")
 									  }

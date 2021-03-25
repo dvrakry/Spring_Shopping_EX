@@ -22,22 +22,22 @@ public class CartVO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	int getGdsNum() {
+	public int getGdsNum() {
 		return gdsNum;
 	}
-	void setGdsNum(int gdsNum) {
+	public void setGdsNum(int gdsNum) {
 		this.gdsNum = gdsNum;
 	}
-	int getCartStock() {
+	public int getCartStock() {
 		return cartStock;
 	}
-	void setCartStock(int cartStock) {
+	public void setCartStock(int cartStock) {
 		this.cartStock = cartStock;
 	}
-	Date getAddDate() {
+	public Date getAddDate() {
 		return addDate;
 	}
-	void setAddDate(Date addDate) {
+	public void setAddDate(Date addDate) {
 		this.addDate = addDate;
 	}
 	

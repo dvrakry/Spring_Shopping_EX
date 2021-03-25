@@ -23,6 +23,11 @@
  <li>
   ${member.userName}님 환영합니다.
  </li>
+ 
+ <li>
+  <a href="/shop/cartList">장바구니</a>
+ </li>
+ 
  <li>
   <a href="/member/signout">로그아웃</a>
  </li>
