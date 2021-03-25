@@ -39,7 +39,7 @@
 
 ![password](https://user-images.githubusercontent.com/74029610/112431554-063faa80-8d83-11eb-8c9c-ade6fba12a19.PNG)
 
-Spring security 를 이용해서 비밀번호를 DB에 변경시켜 저장했습니다.
+>Spring security 를 이용해서 비밀번호를 DB에 변경시켜 저장했습니다.
 
 
 [상세페이지]
@@ -92,7 +92,7 @@ Spring security 를 이용해서 비밀번호를 DB에 변경시켜 저장했습
 </p>
 ```
 
-장바구니 목록은 gdsNum 칼럼을 inner join해서 불러옴
+>장바구니 목록은 gdsNum 칼럼을 inner join해서 불러옴
 
 ```xml
 <select id="cartList" resultType="clvo">
@@ -113,19 +113,19 @@ Spring security 를 이용해서 비밀번호를 DB에 변경시켜 저장했습
 [댓글 작성]
 ------------
 
-댓글 작성시 로그인이 필요함
+>댓글 작성시 로그인이 필요함
 
 ![댓글1](https://user-images.githubusercontent.com/74029610/112435403-05f5de00-8d88-11eb-8632-b6f77ea62dc5.PNG)
 
 
 
-댓글 기능은 AJAX (비동기 방식)을 사용함
+>댓글 기능은 AJAX (비동기 방식)을 사용함
 
 ![댓글2](https://user-images.githubusercontent.com/74029610/112435714-74d33700-8d88-11eb-8654-35cfb9e8f3f5.PNG)
 
 
 
-함수 replyList() (아래 AJAX 에서 사용됨)
+>함수 replyList() (아래 AJAX 에서 사용됨)
 
 ```java
   <script> 
