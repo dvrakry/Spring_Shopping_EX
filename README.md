@@ -47,6 +47,7 @@ Spring security 를 이용해서 비밀번호를 DB에 변경시켜 저장했습
 ![상세페이지](https://user-images.githubusercontent.com/74029610/112432221-ebba0100-8d83-11eb-93b3-73044666592a.PNG)
 
 [장바구니 담기]
+-------------
 
 
 ```java
@@ -105,7 +106,111 @@ Spring security 를 이용해서 비밀번호를 DB에 변경시켜 저장했습
 	</select>	
 ```
 [장바구니 목록]
+
 ![장바구니 목록](https://user-images.githubusercontent.com/74029610/112434728-3f7a1980-8d87-11eb-828e-134e2ff5ee44.PNG)
+
+
+[댓글 작성]
+------------
+
+![댓글1](https://user-images.githubusercontent.com/74029610/112435403-05f5de00-8d88-11eb-8632-b6f77ea62dc5.PNG)
+
+댓글 작성시 로그인이 필요함
+
+![댓글2](https://user-images.githubusercontent.com/74029610/112435714-74d33700-8d88-11eb-8654-35cfb9e8f3f5.PNG)
+
+댓글 기능은 AJAX (비동기 방식)을 사용함
+
+함수 replyList() (아래 AJAX 에서 사용됨)
+
+```java
+  <script> 
+	function replyList(){
+
+		console.log("replyList 함수 시작");
+
+
+		 var gdsNum = ${view.gdsNum};
+		 $.getJSON("/shop/view/replyList" + "?n=" + gdsNum, function(data){
+		  var str = "";
+
+		  $(data).each(function(){
+
+		   console.log(data);
+
+		   var repDate = new Date(this.repDate);
+		   repDate = repDate.toLocaleDateString("ko-US")
+
+		   str += "<li data-repNum='" + this.repNum + "'>"
+		     + "<div class='userInfo'>"
+		     + "<span class='userName'>" + this.userName + "</span>"
+		     + "<span class='date'>" + repDate + "</span>"
+		     + "</div>"
+		     + "<div class='replyContent' name='modRepCon'>" + this.repCon + "</div>"
+
+		     + "<c:if test='${member != null}'>"
+
+		     + "<div class='replyFooter'>"
+		     + "<button type='button' class='modify' data-repNum='"+ this.repNum +"'>수정</button>"
+		     + "<button type='button' class='delete' data-repNum='"+ this.repNum +"'>삭제</button>"
+
+		     + "</c:if>"
+
+		     + "</li>";           
+		  });
+
+		  $("section.replyList ol").html(str);
+		 });
+
+	}
+  </script>
+  
+[댓글 AJAX]
+  
+```java
+
+<div class="input_area">
+	<button type="button" id="reply_btn">댓글 남기기</button>
+
+	<script>
+		 $("#reply_btn").click(function(){
+
+		  console.log("ajax 댓글남기기");	 
+
+		  var formObj = $(".replyForm form[role='form']");
+		  var gdsNum = $(".gdsNum").val();
+
+		  console.log(gdsNum);
+
+		  var repCon = $("#repCon").val();
+
+		  var data = {
+		    gdsNum : gdsNum,
+		    repCon : repCon
+		    };
+
+		  $.ajax({
+		   url : "/shop/view/registReply",
+		   type : "post",
+		   data : data,
+		   success : function(){
+			   replyList();  // 리스트 새로고침
+			   $("#repCon").val("");  // 텍스트에어리어를 초기화
+		   }
+
+		  });
+
+		 });
+
+	</script>
+</div>	
+
+```
+
+
+
+
+
 
 
 
