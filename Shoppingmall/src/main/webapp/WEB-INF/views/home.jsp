@@ -63,7 +63,7 @@
 		<div id="container_box">
 		
 			<section id="content">
-				본문 영역
+			
 			</section>
 			
 			<aside id="aside">

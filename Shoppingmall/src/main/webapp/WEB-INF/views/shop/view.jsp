@@ -197,7 +197,7 @@
 					</p>
 				  
 				  <p class="addToCart">
-				   <button type="button" class="addCart_btn">카트에 담기</button>
+				   <button type="button" class="addCart_btn">장바구니 담기</button>
 				   
 				   <script>
 				   	$(".addCart_btn").click(function(){
@@ -405,7 +405,7 @@ $(".modal_cancel").click(function(){
 								  type : "post",
 								  data : data,
 								  success : function(result){
-									  if(resut == 1){
+									  if(result == 1){
 										  replyList();
 										  $(".replyModal").fadeOut(200);
 									  } else {
