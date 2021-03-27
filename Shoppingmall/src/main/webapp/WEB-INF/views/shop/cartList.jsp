@@ -57,7 +57,7 @@
  section#content ul li img { width:250px; height:250px; }
  section#content ul li::after { content:""; display:block; clear:both; }
  section#content div.thumb { float:left; width:250px; }
- section#content div.gdsInfo { float:right; width:calc(100% - 270px); }
+ section#content div.gdsInfo { float:right; width:calc(100% - 300px); }
  section#content div.gdsInfo { font-size:20px; line-height:2; }
  section#content div.gdsInfo span { display:inline-block; width:100px; font-weight:bold; margin-right:10px; }
  section#content div.gdsInfo .delete { text-align:right; }
@@ -72,7 +72,7 @@
 .checkBox { float:left; width:30px; }
 .checkBox input { width:16px; height:16px; }
 </style>
-	<title>Home</title>
+	<title>장바구니</title>
 </head>
 <body>
 <div id="root">
@@ -112,7 +112,36 @@
 				 		 <div class="delBtn">
   							 <button type="button" class="selectDelete_btn">선택 삭제</button> 
  						</div>
+ 						
+ 						<script>
+ 							$(".selectDelete_btn").click(function(){
+ 								var confirm_val = confirm("정말 삭제하시겠습니까?");
+ 								
+ 								if(confirm_val) {
+ 									var checkArr = new Array();
+ 									console.log(checkArr);
+ 									
+ 									$("input[class='chBox']:checked").each(function(){
+ 										checkArr.push($(this).attr("data-cartNum"));
+ 									});
+ 									
+ 									$.ajax({
+ 										url : "/shop/deleteCart",
+ 										type : "post",
+ 										data : { chbox : checkArr},
+ 										success : function(result){
+ 											if(result == 1){
+ 												location.href = "/shop/cartList";
+ 											} else {
+ 												alert("삭제 실패");
+ 											}
+ 										}
+ 									});
+ 								}
+ 							});
+ 						</script>
 				 	</li>
+				 	<hr>
 				 		
 			  		<c:forEach items="${cartList}" var="cartList">
 				  	<li>
@@ -139,11 +168,37 @@
 						    </p>
 						    
 						    <div class="delete">
-						    	<button class="delete_btn" data-cartNum="${cartList.cartNum }">삭제</button>
+						    	<button class="delete_${cartList.cartNum}_btn" data-cartNum="${cartList.cartNum }">삭제</button>
 						    </div>
-					        
+						    
+						    <script type="text/javascript">
+						    	$(".delete_${cartList.cartNum}_btn").click(function(){
+						    		var confirm_val = confirm("정말 삭제하시겠습니까?");
+						    		
+						    		if(confirm_val) {
+						    			var checkArr = new Array();
+						    			
+						    			checkArr.push($(this).attr("data-cartNum"));
+						    			
+						    			$.ajax({
+						    				url : "/shop/deleteCart",
+						    				type : "post",
+						    				data : { chbox : checkArr },
+						    				success : function(result) {
+						    					
+						    					if(result == 1) {
+						    						location.href = "/shop/cartList";
+						    					} else {
+						    						alert("삭제 실패");
+						    					}
+						    				}
+						    			});
+						    		}
+						    	});
+						    </script>
 					   	</div>
 				  	</li>
+			        <hr>
 			  		</c:forEach>				
 				 </ul>
 			</section>

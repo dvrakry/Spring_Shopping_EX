@@ -80,6 +80,11 @@ public class ShopServiceImpl implements ShopService {
 	public List<CartListVO> cartList(String userId) throws Exception {
 		return dao.cartList(userId);
 	}
+
+	@Override
+	public void deleteCart(CartVO cart) throws Exception {
+		dao.deleteCart(cart);
+	}
 	
 	
 	

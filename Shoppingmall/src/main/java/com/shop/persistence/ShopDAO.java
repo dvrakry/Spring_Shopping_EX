@@ -34,10 +34,13 @@ public interface ShopDAO {
 	//상품 댓글 수정
 	public void modifyReply(ReplyVO reply) throws Exception;
 	
-	//카트담기
+	//장바구니 담기
 	public void addCart(CartVO cart) throws Exception;
 	
-	//카트리스트
+	//장바구니 리스트
 	public List<CartListVO> cartList(String userId) throws Exception;
+	
+	//장바구니 삭제
+	public void deleteCart(CartVO cart) throws Exception;
 	
 }
