@@ -96,34 +96,34 @@
 				 <ul>
 				 	<li>
 				 		<div class="allCheck">
-				 			<input type="checkbox" name="allCheck" id="allCheck"/><label for="allCheck">모두 선택</label>
+				 			<input type="checkbox" name="allCheck" id="allCheck"/><label for="allCheck">모두선택</label>
 				 			
 				 			<script>
 				 				$("#allCheck").click(function(){
 				 					var chk = $("#allCheck").prop("checked");
 				 					if(chk){
-				 						$(".chBox").prop("checked", true);
+				 						$(".chBox").prop("checked", this.checked);
 				 					} else {
-				 						$(".chBox").prop("checked", false);
+				 						$(".chBox").prop("checked", this.checked);
 				 					}
 				 				});
 				 			</script>
 				 		</div>
 				 		 <div class="delBtn">
-  							 <button type="button" class="selectDelete_btn">선택 삭제</button> 
+  							 <button type="button" class="selectDelete_${cartList.cartNum}_btn" data-cartNum="${carList.cartNum }">선택삭제</button> 
  						</div>
  						
  						<script>
- 							$(".selectDelete_btn").click(function(){
+ 							$(".selectDelete_${cartList.cartNum}_btn").click(function(){
  								var confirm_val = confirm("정말 삭제하시겠습니까?");
  								
  								if(confirm_val) {
  									var checkArr = new Array();
- 									console.log(checkArr);
  									
  									$("input[class='chBox']:checked").each(function(){
  										checkArr.push($(this).attr("data-cartNum"));
  									});
+ 										console.log(checkArr);
  									
  									$.ajax({
  										url : "/shop/deleteCart",
@@ -146,7 +146,7 @@
 			  		<c:forEach items="${cartList}" var="cartList">
 				  	<li>
 				  		<div class="checkBox">
-							<input type="checkbox" name="chBox" class="chBox" data-cartNum="${carList.cartNum }"/>
+							<input type="checkbox" name="chBox" class="chBox" data-cartNum="${carList.cartNum }" />
 							
 							<script type="text/javascript">
 								$(".chBox").click(function(){

@@ -160,7 +160,7 @@ public class ShopController {
 		
 		MemberVO member = (MemberVO)session.getAttribute("member");
 		String userId = member.getUserId();
-		
+	
 		List<CartListVO> cartList = service.cartList(userId);
 		
 		model.addAttribute("cartList", cartList);
@@ -183,6 +183,9 @@ public class ShopController {
 			
 			for(String i : chArr) {
 				cartNum = Integer.parseInt(i);
+				
+				logger.info("cartNum:~~~~~~~~~~~~~~~~~" + cartNum);
+				
 				cart.setCartNum(cartNum);
 				service.deleteCart(cart);
 			}
