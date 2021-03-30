@@ -43,4 +43,6 @@ public interface ShopDAO {
 	//장바구니 삭제
 	public void deleteCart(CartVO cart) throws Exception;
 	
+	
+	
 }

@@ -71,6 +71,12 @@
 
 .checkBox { float:left; width:30px; }
 .checkBox input { width:16px; height:16px; }
+.listResult { padding:20px; background:#eee; }
+.listResult .sum { float:left; width:45%; font-size:22px; }
+
+.listResult .orderOpne { float:right; width:45%; text-align:right; }
+.listResult .orderOpne button { font-size:18px; padding:5px 10px; border:1px solid #999; background:#fff;}
+.listResult::after { content:""; display:block; clear:both; }
 </style>
 	<title>장바구니</title>
 </head>
@@ -109,39 +115,42 @@
 				 				});
 				 			</script>
 				 		</div>
-				 		 <div class="delBtn">
-  							 <button type="button" class="selectDelete_${cartList.cartNum}_btn" data-cartNum="${carList.cartNum }">선택삭제</button> 
- 						</div>
+				 		<div class="delBtn">
+							<button type="button" class="selectDelete_btn">선택 삭제</button>
  						
- 						<script>
- 							$(".selectDelete_${cartList.cartNum}_btn").click(function(){
- 								var confirm_val = confirm("정말 삭제하시겠습니까?");
- 								
- 								if(confirm_val) {
- 									var checkArr = new Array();
- 									
- 									$("input[class='chBox']:checked").each(function(){
- 										checkArr.push($(this).attr("data-cartNum"));
- 									});
- 										console.log(checkArr);
- 									
- 									$.ajax({
- 										url : "/shop/deleteCart",
- 										type : "post",
- 										data : { chbox : checkArr},
- 										success : function(result){
- 											if(result == 1){
- 												location.href = "/shop/cartList";
- 											} else {
- 												alert("삭제 실패");
- 											}
- 										}
- 									});
- 								}
- 							});
- 						</script>
+ 							<script>
+								$(".selectDelete_btn").click(function(){
+									var confirm_val = confirm("정말 삭제하시겠습니까?");
+									
+									if(confirm_val) {
+										var checkArr = new Array();
+										
+										// 체크된 체크박스의 갯수만큼 반복
+										$("input[class='chBox']:checked").each(function(){
+											checkArr.push($(this).attr("data-cartNum"));  // 배열에 데이터 삽입
+										});
+											
+										$.ajax({
+											url : "/shop/deleteCart",
+											type : "post",
+											data : { chbox : checkArr },
+											success : function(result){
+												
+												if(result == 1) {												
+													location.href = "/shop/cartList";
+												} else {
+													alert("삭제 실패");
+												}
+											}
+										});
+									}	
+								});
+							</script>
+						</div>
 				 	</li>
 				 	<hr>
+				 	
+				 	<c:set var="sum" value="0"/>
 				 		
 			  		<c:forEach items="${cartList}" var="cartList">
 				  	<li>
@@ -199,8 +208,21 @@
 					   	</div>
 				  	</li>
 			        <hr>
+			        
+			        <c:set var="sum" value="${sum + (cartList.gdsPrice * cartList.cartStock)}" />
 			  		</c:forEach>				
 				 </ul>
+				 
+			<div class="listResult">
+				 <div class="sum">
+				  총 합계 : <fmt:formatNumber pattern="###,###,###" value="${sum}" />원
+				 </div>
+				 
+				 <div class="orderOpen">
+				  <button type="button" class="orderOpne_bnt">주문 정보 입력</button>
+				 </div>
+			</div>
+				 
 			</section>
 			
 			<aside id="aside">
