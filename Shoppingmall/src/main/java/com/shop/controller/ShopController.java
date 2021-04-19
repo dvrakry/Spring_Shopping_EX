@@ -19,6 +19,8 @@ import com.shop.domain.CartListVO;
 import com.shop.domain.CartVO;
 import com.shop.domain.GoodsViewVO;
 import com.shop.domain.MemberVO;
+import com.shop.domain.OrderDetailVO;
+import com.shop.domain.OrderVO;
 import com.shop.domain.ReplyListVO;
 import com.shop.domain.ReplyVO;
 import com.shop.service.ShopService;
@@ -192,6 +194,17 @@ public class ShopController {
 			result = 1;
 		} 
 		return result;
+	}
+	
+	@PostMapping(value = "/cartList")
+	public void order(HttpSession session, OrderVO order, OrderDetailVO orderDetail) throws Exception {
+		logger.info("order");
+		
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		String userId = member.getUserId();
+		
+		service.orderInfo(order);
+		service.orderInfo_Details(orderDetail);
 	}
 	
 }
