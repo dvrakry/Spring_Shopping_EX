@@ -48,6 +48,8 @@
 	<!-- 대체 이미지 경로 -->
 	<resources mapping="/images/**" location="/resources/images/" />
 	
+	<resources mapping="/resources/**" location="/resources/" />
+	
 	<!-- 인터셉터 -->
 	<beans:bean id="AdminInterceptor" class="com.shop.interceptor.AdminInterceptor" />
 
