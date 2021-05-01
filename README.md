@@ -1,5 +1,5 @@
 # Spring_Shopping_EX
-스프링 프레임워크 쇼핑몰 연습
+스프링 프레임워크 쇼핑몰 연습.
 ---------------------------
 [메인화면]
 ---------------------------
@@ -39,8 +39,7 @@
 
 ![password](https://user-images.githubusercontent.com/74029610/112431554-063faa80-8d83-11eb-8c9c-ade6fba12a19.PNG)
 
->Spring security 를 이용해서 비밀번호를 DB에 변경시켜 저장했습니다.
-
+>Spring security를 이용해서 비밀번호를 DB에 변경시켜 저장함
 
 [상세페이지]
 --------------
