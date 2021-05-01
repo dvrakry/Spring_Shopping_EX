@@ -81,7 +81,7 @@
 					<button type="submit" id="signin_btn" name="signin_btn">로그인</button>
 				</div>
 				<c:if test="${msg == false }">
-					<p style="color:#f00;">로그인에 실패했습니다.</p>
+					<p style="color:#f00;">로그인에 실패했습니다!</p>
 				</c:if>
 			</form>
 		</section>
