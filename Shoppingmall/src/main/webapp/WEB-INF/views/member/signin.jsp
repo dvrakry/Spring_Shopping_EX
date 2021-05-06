@@ -2,34 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%-- <section id="container">
-	<div id="container_box">
-		
-		<section id="content">
-			<form role="form" method="post" autocomplete="off">
-				<div class="input_area">
-					<label for="userId">아이디</label>
-					<input type="email" id="userId" name="userId" required />
-				</div>
-				
-				<div class="input_area">
-					<label for="userPass">패스워드</label>
-					<input type="password" id="userPass" name="userPass" required />
-				</div>
-				
-				<button type="submit" id="signin_btn" name="signin_btn">로그인</button>
-				
-				<c:if test="${msg == false }">
-					<p style="color:#f00;">로그인에 실패했습니다.</p>
-				</c:if>
-				
-			</form>
-
-		</section>
-	
-	</div>
-</section> --%>
-
 <!doctype HTML>
 <head>
 	<meta charset="UTF-8">
@@ -51,29 +23,15 @@
 				<h1>Rak's Coffee</h1>
 			</div>
 		</header>
-		<!-- <section class="login-input-section-wrap">
-			<div class="login-input-wrap">	
-				<input placeholder="Username" type="text"></input>
-			</div>
-			<div class="login-input-wrap password-wrap">	
-				<input placeholder="Password" type="password"></input>
-			</div>
-			<div class="login-button-wrap">
-				<button>Sign in</button>
-			</div>
-			<div class="login-stay-sign-in">
-				<i class="far fa-check-circle"></i>
-				<span>Stay Signed in</span>
-			</div>
-		</section> -->
 		
 		<section id="content" class="login-input-section-wrap">
+			
 			<form role="form" method="post" autocomplete="off">
-				<div class="input_area" class="login-input-wrap">
+				<div class="login-input-wrap">
 					<!-- <label for="userId">아이디: </label> -->
 					<input placeholder="Username" type="text" id="userId" name="userId" required />
 				</div>
-				<div class="input_area" class="login-input-wrap password-wrap">
+				<div class="login-input-wrap password-wrap">
 					<!-- <label for="userPass">패스워드: </label> -->
 					<input placeholder="Password" type="password" id="userPass" name="userPass" required />
 				</div>
@@ -81,9 +39,10 @@
 					<button type="submit" id="signin_btn" name="signin_btn">로그인</button>
 				</div>
 				<c:if test="${msg == false }">
-					<p style="color:#f00;">로그인에 실패했습니다!</p>
+					<p style="color:#f00;">로그인에 실패했습니다</p>
 				</c:if>
 			</form>
+			
 		</section>
 		
 		<section class="Easy-sgin-in-wrap">
