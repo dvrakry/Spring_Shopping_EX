@@ -50,7 +50,7 @@
 			<ul class="sign-button-list">
 				<li><button><i class="fas fa-qrcode"></i><span>Sign in with QR code</span></button></li>
 				<li><button><i class="fab fa-facebook-square"></i><span>Facebook</span></button></li>
-				<li><button><i class="fab fa-line"></i><span>line</span></button></li>
+				<li><a href="javascript:kakaoLogin();"><img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="height: 60px; width: 460px;"/></a></li>
 			</ul>
 			<p class="forget-msg">Forgot your Username or Password? | <a href="/member/signup"> Sign up </a></p>
 		</section>
@@ -63,3 +63,26 @@
 	</div>
 </body>
 
+<script src="http://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	
+	<script>
+		window.Kakao.init("11f7c2eec090164a076a7510d6b444c9");
+	
+		function kakaoLogin() {
+			window.Kakao.Auth.login({
+				scope:'profile, account_email, gender',
+				success: function(authObj) {
+					console.log(authObj);
+					window.Kakao.API.request({
+						url:'/v2/user/me',
+						success: res => {
+							const kakao_account = res.kakao_account;
+							console.log(kakao_account);
+							console.log("success")
+						}
+					});
+				}
+			});
+		}
+	</script>
+	
