@@ -207,7 +207,6 @@
 						console.log("gdsNum : " + gdsNum);
 						console.log("cartStock : " + cartStock);
 						
-						
 						//ReplyVO 형태로 데이터 생성
 						var data = {
 								gdsNum : gdsNum,
