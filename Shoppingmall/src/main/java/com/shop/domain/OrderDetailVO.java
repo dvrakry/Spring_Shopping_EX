@@ -7,28 +7,29 @@ public class OrderDetailVO {
 	private String orderId;
 	private int gdsNum;
 	private int cartStock;
-	int getOrderDetailsNum() {
+	
+	public int getOrderDetailsNum() {
 		return orderDetailsNum;
 	}
-	void setOrderDetailsNum(int orderDetailsNum) {
+	public void setOrderDetailsNum(int orderDetailsNum) {
 		this.orderDetailsNum = orderDetailsNum;
 	}
-	String getOrderId() {
+	public String getOrderId() {
 		return orderId;
 	}
-	void setOrderId(String orderId) {
+	public void setOrderId(String orderId) {
 		this.orderId = orderId;
 	}
-	int getGdsNum() {
+	public int getGdsNum() {
 		return gdsNum;
 	}
-	void setGdsNum(int gdsNum) {
+	public void setGdsNum(int gdsNum) {
 		this.gdsNum = gdsNum;
 	}
-	int getCartStock() {
+	public int getCartStock() {
 		return cartStock;
 	}
-	void setCartStock(int cartStock) {
+	public void setCartStock(int cartStock) {
 		this.cartStock = cartStock;
 	}
 	

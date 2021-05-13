@@ -14,6 +14,7 @@ import com.shop.domain.CartListVO;
 import com.shop.domain.CartVO;
 import com.shop.domain.GoodsViewVO;
 import com.shop.domain.OrderDetailVO;
+import com.shop.domain.OrderListVO;
 import com.shop.domain.OrderVO;
 import com.shop.domain.ReplyListVO;
 import com.shop.domain.ReplyVO;
@@ -105,6 +106,22 @@ public class ShopDAOImpl implements ShopDAO {
 	@Override
 	public void orderInfo_Details(OrderDetailVO orderDetail) throws Exception {
 		sql.insert(namespace+"orderInfo_Details", orderDetail);
+	}
+	
+	//카트 비우기
+	@Override
+	public void cartAllDelete(String userId) throws Exception {
+		sql.delete(namespace+"cartAllDelete", userId);
+	}
+	
+	//주문 목록
+	public List<OrderVO> orderList(OrderVO order) throws Exception{
+		return sql.selectList(namespace+"orderList", order);
+	}
+
+	@Override
+	public List<OrderListVO> orderView(OrderVO order) throws Exception {
+		return sql.selectList(namespace+"orderView", order);
 	}
 	
 	

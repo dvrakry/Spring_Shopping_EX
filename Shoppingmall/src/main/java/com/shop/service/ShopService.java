@@ -6,6 +6,7 @@ import com.shop.domain.CartListVO;
 import com.shop.domain.CartVO;
 import com.shop.domain.GoodsViewVO;
 import com.shop.domain.OrderDetailVO;
+import com.shop.domain.OrderListVO;
 import com.shop.domain.OrderVO;
 import com.shop.domain.ReplyListVO;
 import com.shop.domain.ReplyVO;
@@ -48,7 +49,13 @@ public interface ShopService {
 	//주문 상세 정보
 		public void orderInfo_Details(OrderDetailVO orderDetail) throws Exception;
 		
+	//카트비우기
+		public void cartAllDelete(String userId) throws Exception;	
 		
-	
+	//주문 목록
+		public List<OrderVO> orderList(OrderVO order) throws Exception;
+		
+	//주문 확인
+		public List<OrderListVO> orderView(OrderVO order) throws Exception;
 	
 }

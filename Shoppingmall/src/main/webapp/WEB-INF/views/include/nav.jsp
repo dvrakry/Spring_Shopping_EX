@@ -27,7 +27,9 @@
  <li>
   <a href="/shop/cartList">장바구니</a>
  </li>
- 
+ <li>
+ <a href="/shop/orderList">주문 리스트</a>
+</li>
  <li>
   <a href="/member/signout">로그아웃</a>
  </li>

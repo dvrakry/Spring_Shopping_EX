@@ -12,6 +12,7 @@ import com.shop.domain.CartListVO;
 import com.shop.domain.CartVO;
 import com.shop.domain.GoodsViewVO;
 import com.shop.domain.OrderDetailVO;
+import com.shop.domain.OrderListVO;
 import com.shop.domain.OrderVO;
 import com.shop.domain.ReplyListVO;
 import com.shop.domain.ReplyVO;
@@ -98,9 +99,21 @@ public class ShopServiceImpl implements ShopService {
 	public void orderInfo_Details(OrderDetailVO orderDetail) throws Exception {
 		dao.orderInfo_Details(orderDetail);
 	}
-	
-	
-	
+
+	@Override
+	public void cartAllDelete(String userId) throws Exception {
+		dao.cartAllDelete(userId);
+	}
+
+	@Override
+	public List<OrderVO> orderList(OrderVO order) throws Exception {
+		return dao.orderList(order);
+	}
+
+	@Override
+	public List<OrderListVO> orderView(OrderVO order) throws Exception {
+		return dao.orderView(order);
+	}
 	
 
 }
