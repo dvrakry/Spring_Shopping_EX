@@ -121,7 +121,7 @@ and userId = #{userId}
 <!-- 특정 유저의 주문 목록 -->
 <select id="orderList" resultType="ovo">
  select
-     orderId, userId, orderRec, userAddr1, userAddr2, userAddr3, orderPhon, amount, orderDate
+     orderId, userId, orderRec, userAddr1, userAddr2, userAddr3, orderPhon, amount, orderDate, delivery
  from tbl_order 
      where userId = #{userId}
 </select>
@@ -129,7 +129,7 @@ and userId = #{userId}
 <!-- 특정 주문 목록 -->
 <select id="orderView" resultType="olvo">
  select
-     o.orderId, o.userId, o.orderRec, o.userAddr1, o.userAddr2, o.userAddr3, o.orderPhon, o.amount, o.orderDate,
+     o.orderId, o.userId, o.orderRec, o.userAddr1, o.userAddr2, o.userAddr3, o.orderPhon, o.amount, o.orderDate, o.delivery
      d.orderDetailsNum, d.gdsNum, d.cartStock,
      g.gdsName, g.gdsThumbImg, g.gdsPrice
  from tbl_order o

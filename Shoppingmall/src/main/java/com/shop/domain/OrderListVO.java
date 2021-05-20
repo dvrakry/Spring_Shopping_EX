@@ -13,6 +13,7 @@ public class OrderListVO {
 	private String orderPhon;
 	private int amount;
 	private Date orderDate;
+	private String delivery;
 	
 	private int orderDetailNum;
 	private int gdsNum;
@@ -21,7 +22,15 @@ public class OrderListVO {
 	private String gdsName;
 	private String gdsThumbImg;
 	private int gdsPrice;
+
 	
+	
+	public String getDelivery() {
+		return delivery;
+	}
+	public void setDelivery(String delivery) {
+		this.delivery = delivery;
+	}
 	public String getOrderId() {
 		return orderId;
 	}
